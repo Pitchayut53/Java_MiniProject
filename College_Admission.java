@@ -1,4 +1,3 @@
-import java.util.*; 
 /**
  * Write a description of Admission here.
  * 
@@ -6,10 +5,13 @@ import java.util.*;
  * @version (10/12/2020)
  */
 
+import java.util.*; 
+import Regis.Login;
+import java.lang.Thread;
+
 interface Testinterface
 {
 static String University = "Christ University";
-
 }
 
 class Register implements Testinterface {
@@ -84,6 +86,8 @@ public class College_Admission {
       //Courses saveval[] = null; 
        int d = 0;
        String testex = null; 
+	Login Login_obj=new Login();
+        Login_obj.Registation(); 
        while (d==0)
        {
         System.out.print("\n\n=================== College Admission Management System ===================\n");
@@ -95,7 +99,6 @@ public class College_Admission {
         System.out.print("Enter the option : ");
         Scanner ch= new Scanner(System.in);
         int c = ch.nextInt(); 
-        
         switch(c)
         {
             case 1 :    System.out.print("Enter Number of Students: ");
