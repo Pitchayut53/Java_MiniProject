@@ -6,7 +6,7 @@
  */
 
 import java.util.*; 
-import Regis.Login;
+//import Regis.Login;
 import java.lang.Thread;
 
 interface Testinterface
@@ -78,6 +78,14 @@ class Courses extends Register {
     
 }
 
+class TestGenetic<G> 
+{ 
+    // An object of type T is declared 
+    G obj; 
+    TestGenetic(G obj) {  this.obj = obj;  }  // constructor 
+    public G getObject()  { return this.obj; } 
+} 
+
 public class College_Admission {
     static int nos;
    public static void main(String args[])
@@ -85,8 +93,11 @@ public class College_Admission {
        //Courses[] gobj = new Courses[10];
       //Courses saveval[] = null; 
        int d = 0;
+       double sum = 0;
+    List<Double> list = new ArrayList<Double>();
+    TestGenetic <String> sObj = new TestGenetic<String>("Thank you for Using"); 
        String testex = null; 
-	Login Login_obj=new Login();
+    Login Login_obj=new Login();
         Login_obj.Registation(); 
        while (d==0)
        {
@@ -94,7 +105,7 @@ public class College_Admission {
         System.out.print("===========================================================================\n\n");
         System.out.print("1. Enter Application Form / Display Application Form\n");
         System.out.print("2. Select Course\n");
-        System.out.print("3. Exception Handling Test\n");
+        System.out.print("3. Calculate Grade using Collection Class\n");
         System.out.print("4. Exit\n");
         System.out.print("Enter the option : ");
         Scanner ch= new Scanner(System.in);
@@ -124,23 +135,21 @@ public class College_Admission {
                             } 
             break;
             
-            case 3 : 
-             try
-                { 
-                    // This line of code throws NullPointerException 
-                    if (testex.equals("Hello")) 
-                        System.out.print("Same"); 
-                    else 
-                        System.out.print("Not Same"); 
-                } 
-                catch(NullPointerException e) 
-                { 
-                    System.out.print("NullPointerException Caught"); 
-                } 
+            case 3 :  for(int i=0;i<5;i++){
+                        System.out.printf("Enter Grade for %d semester : ",i+1);
+                        Scanner gd = new Scanner(System.in);
+                        double gds = gd.nextDouble();
+                        list.add(gds); }
+                        for(double num : list) {
+                            sum = sum+num;
+                        }
+                        double summ = sum/5;
+                        System.out.println("\nYour GPA is:"+summ);
+            
               
             break;           
             case 4 :
-            System.out.print("\nThank you");
+            System.out.println(sObj.getObject()); 
             d = 1;
             break;
             default :
